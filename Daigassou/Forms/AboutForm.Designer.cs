@@ -39,21 +39,22 @@
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.BackColor = System.Drawing.Color.Transparent;
-            this.lblVersion.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
             this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblVersion.Location = new System.Drawing.Point(197, 342);
+            this.lblVersion.Location = new System.Drawing.Point(195, 349);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(94, 38);
+            this.lblVersion.Size = new System.Drawing.Size(110, 50);
             this.lblVersion.TabIndex = 1;
             this.lblVersion.Text = "Ver 1.1.0.54\r\n\r\n";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 6F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(239, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(236, 102);
+            this.label2.Size = new System.Drawing.Size(235, 90);
             this.label2.TabIndex = 2;
             this.label2.Text = "您同意使用本软件产品风险由用户自行承担\r\n包括但不限于死机，封号，硬盘爆炸等\r\n为避免滥用，您同意使用本程序进行的活动\r\n不会侵犯第三方的权利。\r\n当发生滥用时\r" +
     "\n作者保留禁止您继续使用本程序的权利。\r\n";
@@ -63,11 +64,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
-            this.label3.Location = new System.Drawing.Point(239, 227);
+            this.label3.Location = new System.Drawing.Point(239, 233);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 102);
+            this.label3.Size = new System.Drawing.Size(190, 114);
             this.label3.TabIndex = 3;
             this.label3.Text = "程序：黑尾白猫@神意之地\r\n助手：酒酿和歌子@神意之地\r\n\r\n发布：blog.ffxiv.cat\r\nBug反馈裙：720145203\r\n\r\n";
             // 
@@ -84,28 +85,29 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 7F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(239, 261);
+            this.label4.Location = new System.Drawing.Point(239, 271);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 17);
+            this.label4.Size = new System.Drawing.Size(163, 19);
             this.label4.TabIndex = 5;
             this.label4.Text = "两只猫娘是不是很可爱！";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AboutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Daigassou.Properties.Resources.about2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(490, 362);
+            this.ClientSize = new System.Drawing.Size(488, 394);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
