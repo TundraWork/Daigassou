@@ -244,7 +244,6 @@
       <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\lyricPoster.cs" />
-    <Compile Include="Utils\MmlMidiConventer.cs" />
     <Compile Include="Utils\ParameterController.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
