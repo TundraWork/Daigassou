@@ -47,12 +47,6 @@ namespace Daigassou
             KeyBinding.LoadConfig();
             timeBeginPeriod(1);
             
-            Task.Run((Action)(() =>
-            {
-                CommonUtilities.GetLatestVersion();
-                this.TimeSync();
-            }));
-            
             Text += $@" Ver{Assembly.GetExecutingAssembly().GetName().Version} ";
             cbMidiKeyboard.DataSource = KeyboardUtilities.GetKeyboardList();
             kc.stopHandler += StopKeyPlay;
@@ -290,11 +284,6 @@ namespace Daigassou
             {
                 case ".mid":
                     mtk.OpenFile(fileName);
-                    break;
-                case ".mml":
-                    var buffer = MmlMidiConventer.mmlRead(fileName);
-                    if (buffer != null)
-                        mtk.OpenFile(buffer);
                     break;
                 default:
                     break;
