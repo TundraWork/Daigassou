@@ -41,6 +41,8 @@
             this.chordEventNum = new System.Windows.Forms.NumericUpDown();
             this.minEventNum = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbUsingAnalysis = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.cbPcap = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -228,6 +230,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cbUsingAnalysis);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.cbPcap);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.panel4);
@@ -244,6 +248,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(364, 245);
             this.panel1.TabIndex = 50;
+            // 
+            // cbUsingAnalysis
+            // 
+            this.cbUsingAnalysis.AutoSize = true;
+            this.cbUsingAnalysis.Location = new System.Drawing.Point(146, 92);
+            this.cbUsingAnalysis.Name = "cbUsingAnalysis";
+            this.cbUsingAnalysis.Size = new System.Drawing.Size(80, 32);
+            this.cbUsingAnalysis.TabIndex = 58;
+            this.cbUsingAnalysis.Text = "开启";
+            this.cbUsingAnalysis.UseVisualStyleBackColor = true;
+            this.cbUsingAnalysis.CheckedChanged += new System.EventHandler(this.cbUsingAnalysis_CheckedChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 93);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 28);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "使用和弦解析";
             // 
             // cbPcap
             // 
@@ -265,6 +290,7 @@
             this.label13.Size = new System.Drawing.Size(132, 30);
             this.label13.TabIndex = 55;
             this.label13.Text = "使用winpcap";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // panel4
             // 
@@ -588,5 +614,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.CheckBox cbPcap;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox cbUsingAnalysis;
+        private System.Windows.Forms.Label label14;
     }
 }

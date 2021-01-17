@@ -34,11 +34,13 @@ namespace Daigassou
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.trackComboBox = new System.Windows.Forms.ComboBox();
             this.gBMidiFile = new System.Windows.Forms.GroupBox();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.btnFileSelect = new System.Windows.Forms.Button();
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnTimeSync = new System.Windows.Forms.Button();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,6 +50,7 @@ namespace Daigassou
             this.label3 = new System.Windows.Forms.Label();
             this.midFileDiag = new System.Windows.Forms.OpenFileDialog();
             this.gBParameterSetting = new System.Windows.Forms.GroupBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.nudBpm = new System.Windows.Forms.NumericUpDown();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -57,13 +60,16 @@ namespace Daigassou
             this.gBKeySetting = new System.Windows.Forms.GroupBox();
             this.btn37Key = new System.Windows.Forms.Button();
             this.btn13Key = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.btnSwitch = new System.Windows.Forms.Button();
             this.gBKeyboardSetting = new System.Windows.Forms.GroupBox();
             this.btnKeyboardConnect = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.lblPlay = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblMidiName = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
@@ -77,7 +83,6 @@ namespace Daigassou
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.playTimer = new System.Windows.Forms.Timer(this.components);
             this.tipTsukkomi = new System.Windows.Forms.ToolTip(this.components);
-            this.lblMidiName = new System.Windows.Forms.Label();
             radioButton3 = new System.Windows.Forms.RadioButton();
             this.gBMidiFile.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -120,13 +125,14 @@ namespace Daigassou
             // 
             // gBMidiFile
             // 
+            this.gBMidiFile.Controls.Add(this.panel6);
             this.gBMidiFile.Controls.Add(this.btnFileSelect);
             this.gBMidiFile.Controls.Add(this.pathTextBox);
             this.gBMidiFile.Controls.Add(this.label1);
             this.gBMidiFile.Controls.Add(this.label2);
             this.gBMidiFile.Controls.Add(this.trackComboBox);
             this.gBMidiFile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gBMidiFile.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gBMidiFile.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gBMidiFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
             this.gBMidiFile.Location = new System.Drawing.Point(0, 13);
             this.gBMidiFile.Name = "gBMidiFile";
@@ -135,11 +141,18 @@ namespace Daigassou
             this.gBMidiFile.TabStop = false;
             this.gBMidiFile.Text = "Midi乐谱选择";
             // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(-1, 99);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1346, 13);
+            this.panel6.TabIndex = 19;
+            // 
             // btnFileSelect
             // 
             this.btnFileSelect.BackColor = System.Drawing.Color.White;
             this.btnFileSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFileSelect.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnFileSelect.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnFileSelect.ForeColor = System.Drawing.Color.Black;
             this.btnFileSelect.Location = new System.Drawing.Point(359, 37);
             this.btnFileSelect.Name = "btnFileSelect";
@@ -171,10 +184,12 @@ namespace Daigassou
             this.label1.Size = new System.Drawing.Size(97, 30);
             this.label1.TabIndex = 5;
             this.label1.Text = "导入文件";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F);
             this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(16, 85);
@@ -182,9 +197,11 @@ namespace Daigassou
             this.label2.Size = new System.Drawing.Size(97, 30);
             this.label2.TabIndex = 4;
             this.label2.Text = "选择音轨";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel3);
             this.groupBox1.Controls.Add(this.btnTimeSync);
             this.groupBox1.Controls.Add(this.numericUpDown2);
             this.groupBox1.Controls.Add(this.label8);
@@ -193,7 +210,7 @@ namespace Daigassou
             this.groupBox1.Controls.Add(this.dtpSyncTime);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
             this.groupBox1.Location = new System.Drawing.Point(0, 373);
             this.groupBox1.Name = "groupBox1";
@@ -202,11 +219,18 @@ namespace Daigassou
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "同步演奏";
             // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(0, 123);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1346, 13);
+            this.panel3.TabIndex = 16;
+            // 
             // btnTimeSync
             // 
             this.btnTimeSync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(110)))), ((int)(((byte)(128)))));
             this.btnTimeSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimeSync.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.btnTimeSync.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.btnTimeSync.ForeColor = System.Drawing.Color.White;
             this.btnTimeSync.Location = new System.Drawing.Point(289, 79);
             this.btnTimeSync.Name = "btnTimeSync";
@@ -252,7 +276,7 @@ namespace Daigassou
             // 
             this.btnSyncReady.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(110)))), ((int)(((byte)(128)))));
             this.btnSyncReady.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSyncReady.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.btnSyncReady.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.btnSyncReady.ForeColor = System.Drawing.Color.White;
             this.btnSyncReady.Location = new System.Drawing.Point(289, 127);
             this.btnSyncReady.Name = "btnSyncReady";
@@ -310,6 +334,7 @@ namespace Daigassou
             // 
             // gBParameterSetting
             // 
+            this.gBParameterSetting.Controls.Add(this.panel5);
             this.gBParameterSetting.Controls.Add(radioButton3);
             this.gBParameterSetting.Controls.Add(this.nudBpm);
             this.gBParameterSetting.Controls.Add(this.radioButton2);
@@ -317,7 +342,7 @@ namespace Daigassou
             this.gBParameterSetting.Controls.Add(this.label5);
             this.gBParameterSetting.Controls.Add(this.label7);
             this.gBParameterSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gBParameterSetting.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.gBParameterSetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.gBParameterSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
             this.gBParameterSetting.Location = new System.Drawing.Point(0, 143);
             this.gBParameterSetting.Name = "gBParameterSetting";
@@ -325,6 +350,13 @@ namespace Daigassou
             this.gBParameterSetting.TabIndex = 5;
             this.gBParameterSetting.TabStop = false;
             this.gBParameterSetting.Text = "播放属性设置";
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(-8, 98);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1346, 13);
+            this.panel5.TabIndex = 18;
             // 
             // nudBpm
             // 
@@ -421,9 +453,10 @@ namespace Daigassou
             // 
             this.gBKeySetting.Controls.Add(this.btn37Key);
             this.gBKeySetting.Controls.Add(this.btn13Key);
+            this.gBKeySetting.Controls.Add(this.panel4);
             this.gBKeySetting.Controls.Add(this.btnSwitch);
             this.gBKeySetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gBKeySetting.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.gBKeySetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.gBKeySetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
             this.gBKeySetting.Location = new System.Drawing.Point(0, 273);
             this.gBKeySetting.Name = "gBKeySetting";
@@ -436,7 +469,7 @@ namespace Daigassou
             // 
             this.btn37Key.BackColor = System.Drawing.Color.Silver;
             this.btn37Key.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn37Key.Font = new System.Drawing.Font("Microsoft YaHei", 11.5F);
+            this.btn37Key.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             this.btn37Key.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn37Key.Location = new System.Drawing.Point(284, 39);
             this.btn37Key.Name = "btn37Key";
@@ -451,7 +484,7 @@ namespace Daigassou
             // 
             this.btn13Key.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(110)))), ((int)(((byte)(128)))));
             this.btn13Key.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn13Key.Font = new System.Drawing.Font("Microsoft YaHei", 11.5F);
+            this.btn13Key.Font = new System.Drawing.Font("微软雅黑", 11.5F);
             this.btn13Key.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn13Key.Location = new System.Drawing.Point(20, 39);
             this.btn13Key.Name = "btn13Key";
@@ -462,13 +495,20 @@ namespace Daigassou
             this.btn13Key.UseVisualStyleBackColor = false;
             this.btn13Key.Click += new System.EventHandler(this.keyForm13Button_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(0, 80);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1346, 13);
+            this.panel4.TabIndex = 17;
+            // 
             // btnSwitch
             // 
             this.btnSwitch.BackColor = System.Drawing.Color.Transparent;
             this.btnSwitch.BackgroundImage = global::Daigassou.Properties.Resources.a0;
             this.btnSwitch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSwitch.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.btnSwitch.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.btnSwitch.ForeColor = System.Drawing.Color.White;
             this.btnSwitch.Location = new System.Drawing.Point(153, 42);
             this.btnSwitch.Name = "btnSwitch";
@@ -481,10 +521,11 @@ namespace Daigassou
             // gBKeyboardSetting
             // 
             this.gBKeyboardSetting.Controls.Add(this.btnKeyboardConnect);
+            this.gBKeyboardSetting.Controls.Add(this.panel2);
             this.gBKeyboardSetting.Controls.Add(this.label9);
             this.gBKeyboardSetting.Controls.Add(this.cbMidiKeyboard);
             this.gBKeyboardSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gBKeyboardSetting.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.gBKeyboardSetting.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.gBKeyboardSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(75)))), ((int)(((byte)(107)))));
             this.gBKeyboardSetting.Location = new System.Drawing.Point(0, 548);
             this.gBKeyboardSetting.Name = "gBKeyboardSetting";
@@ -497,7 +538,7 @@ namespace Daigassou
             // 
             this.btnKeyboardConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(110)))), ((int)(((byte)(128)))));
             this.btnKeyboardConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKeyboardConnect.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.btnKeyboardConnect.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.btnKeyboardConnect.ForeColor = System.Drawing.Color.White;
             this.btnKeyboardConnect.Location = new System.Drawing.Point(328, 39);
             this.btnKeyboardConnect.Name = "btnKeyboardConnect";
@@ -508,6 +549,13 @@ namespace Daigassou
         "Filco也不行！\r\nHHKB也不行！带不带RGB都不行！\r\n王总这不是钱的问题！\r\n\r\n");
             this.btnKeyboardConnect.UseVisualStyleBackColor = false;
             this.btnKeyboardConnect.Click += new System.EventHandler(this.btnKeyboardConnect_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(0, 72);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1346, 13);
+            this.panel2.TabIndex = 15;
             // 
             // label9
             // 
@@ -567,6 +615,17 @@ namespace Daigassou
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Midi轨道试听";
+            // 
+            // lblMidiName
+            // 
+            this.lblMidiName.BackColor = System.Drawing.Color.Transparent;
+            this.lblMidiName.Font = new System.Drawing.Font("Microsoft YaHei", 11F, System.Drawing.FontStyle.Bold);
+            this.lblMidiName.ForeColor = System.Drawing.Color.Gray;
+            this.lblMidiName.Location = new System.Drawing.Point(16, 116);
+            this.lblMidiName.Name = "lblMidiName";
+            this.lblMidiName.Size = new System.Drawing.Size(395, 30);
+            this.lblMidiName.TabIndex = 26;
+            this.lblMidiName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timeLabel
             // 
@@ -700,17 +759,6 @@ namespace Daigassou
             this.playTimer.Enabled = true;
             this.playTimer.Tick += new System.EventHandler(this.PlayTimer_Tick);
             // 
-            // lblMidiName
-            // 
-            this.lblMidiName.BackColor = System.Drawing.Color.Transparent;
-            this.lblMidiName.Font = new System.Drawing.Font("Microsoft YaHei", 11F, System.Drawing.FontStyle.Bold);
-            this.lblMidiName.ForeColor = System.Drawing.Color.Gray;
-            this.lblMidiName.Location = new System.Drawing.Point(16, 116);
-            this.lblMidiName.Name = "lblMidiName";
-            this.lblMidiName.Size = new System.Drawing.Size(395, 30);
-            this.lblMidiName.TabIndex = 26;
-            this.lblMidiName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -726,7 +774,7 @@ namespace Daigassou
             this.Controls.Add(this.gBMidiFile);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
-            this.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -783,12 +831,18 @@ namespace Daigassou
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSwitch;
         private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnTimeSync;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblPlay;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Label lblMidiName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripStatusLabel tlblTime;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -802,7 +856,6 @@ namespace Daigassou
         private System.Windows.Forms.Button btn13Key;
         private System.Windows.Forms.Button btn37Key;
         private System.Windows.Forms.TrackBar tbMidiProcess;
-        private System.Windows.Forms.Label lblMidiName;
     }
 }
 

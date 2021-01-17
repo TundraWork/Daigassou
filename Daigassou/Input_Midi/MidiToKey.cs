@@ -10,6 +10,9 @@ using Melanchall.DryWetMidi.Devices;
 using Melanchall.DryWetMidi.Standards;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
+using System.Threading;
+using Newtonsoft.Json;
+using Daigassou.Utils;
 
 namespace Daigassou
 {
@@ -33,7 +36,9 @@ namespace Daigassou
         private Playback playback;
         private TempoMap Tmap;
         private List<TrackChunk> trunks;
-
+        public Playback midiPlay;
+        private List<string> score = new List<string>();
+        public KeyplayClass netmidi;
         public MidiToKey()
         {
             tracks = new List<NotesManager>();
@@ -96,8 +101,8 @@ namespace Daigassou
             try
             {
                 tracks.Clear();
-                var score = new List<string>();
                 trunks = new List<TrackChunk>();
+                score.Clear();
                 foreach (var track in midi.GetTrackChunks())
                     if (track.ManageNotes().Notes.Count() != 0)
                     {
@@ -226,24 +231,51 @@ namespace Daigassou
                 }
             }
         }
+        public void SaveJsonToFile()
+        {
+            var result = new Daigassou.Utils.KeyplayClass();
+            var stfd = new SaveFileDialog();
+            var backup = Index;
+            stfd.Filter = "Midi文件|*.mid";
+            if (stfd.ShowDialog() == DialogResult.OK)
+            {
+                result.Filename = Path.GetFileNameWithoutExtension(stfd.FileName);
+                result.BPM = GetBpm();
+                result.Tracks = new Utils.KeyplayTrackClass[trunks.Count];
+                for (int i = 0; i < trunks.Count; i++)
+                {
+                    result.Tracks[i] = new Utils.KeyplayTrackClass();
+                    Index = i;
+                    result.Tracks[i].name = score[i];
+                    result.Tracks[i].notes = ArrangeKeyPlaysNew(1);
+                }
+                File.WriteAllText(stfd.FileName, JsonConvert.SerializeObject(result));
+            }
+                
+            
+        
+        }
+
         public void SaveToFile()
         {
             PreProcessTempoMap();
+            var backup = Index;
             for (var i = 0; i < trunks.Count; i++)
             {
+                Index = i;
                 PreProcessNoise();
                 PreProcessChord();
                 PreProcessEvents();
 
             }
-
+            Index = backup;
             var stfd = new SaveFileDialog();
             stfd.Filter = "Midi文件|*.mid";
             if (stfd.ShowDialog() == DialogResult.OK)
                 midi.Write(stfd.FileName, false, MidiFileFormat.MultiTrack,
                     new WritingSettings {TextEncoding = Encoding.Default});
         }
-
+        
         public Queue<KeyPlayList> ArrangeKeyPlaysNew(double speed)
         {
             var trunkEvents = trunks.ElementAt(Index).Events;
@@ -253,6 +285,7 @@ namespace Daigassou
             var tickBase = 60000 / (double) Bpm / ticksPerQuarterNote; //duplicate code need to be delete
             var nowTimeMs = 0.0;
             var retKeyPlayLists = new Queue<KeyPlayList>();
+            
             PreProcessTempoMap();
             PreProcessNoise();
             PreProcessSpeed(speed);
@@ -343,6 +376,19 @@ namespace Daigassou
             return 0;
         }
 
+        public void PlaybackWithoutAnalysis(double speed,EventHandler<MidiEventPlayedEventArgs> P_EventPlayed, CancellationToken token)
+        {
+            midiPlay = trunks.ElementAt(Index).GetPlayback(midi.GetTempoMap());
+            midiPlay.Speed = speed;
+            midiPlay.EventPlayed += P_EventPlayed;
+            midiPlay.Play();
+            while(!token.IsCancellationRequested)
+            {
+                Thread.Sleep(1);
+            }
+            midiPlay.Stop();
+        }
+
 
 
         public int PlaybackPercentGet()
@@ -398,5 +444,6 @@ namespace Daigassou
             var bpm = (int) Tmap.Tempo.AtTime(0).BeatsPerMinute;
             return bpm;
         }
+
     }
 }

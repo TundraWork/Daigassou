@@ -22,6 +22,8 @@ namespace Daigassou
             public uint partyStopPacket { get; set; }
             public uint ensembleStartPacket { get; set; }
             public uint ensemblePacket { get; set; }
+            public uint instruPacket { get; set; }
+            public uint APIVersion { get; set; }
             //public bool isBeta { get; set; }
         }
         public static void WriteLog(string msg)
