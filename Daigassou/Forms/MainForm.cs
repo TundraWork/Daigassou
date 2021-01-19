@@ -557,7 +557,7 @@ namespace Daigassou
 
         private void TimeSync()
         {
-            double error;
+            double error = 0;
             try
             {
                 Log.overlayLog($"时间同步：NTP请求发送");
@@ -567,11 +567,12 @@ namespace Daigassou
                 if (CommonUtilities.SetSystemDateTime.SetLocalTimeByStr(
                     DateTime.Now.AddMilliseconds(offset.TotalMilliseconds * -0.5)))
                     tlblTime.Text = "本地时钟已同步";
+                else
+                    tlblTime.Text = "设置系统时钟失败";
             }
             catch (Exception e)
             {
-                tlblTime.Text = "设置时间出错";
-                
+                tlblTime.Text = "获取网络时钟失败: " + error.ToString() + ": " + e.ToString();
             }
 
            
