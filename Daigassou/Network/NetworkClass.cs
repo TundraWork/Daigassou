@@ -8,10 +8,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Daigassou.Utils;
-using Machina.FFXIV;
 using Machina;
+using Machina.FFXIV;
+using Machina.FFXIV.Headers;
 using NetFwTypeLib;
-
 
 namespace Daigassou
 {
@@ -49,7 +49,6 @@ namespace Daigassou
         public uint PacketUnixTime { get; set; }
         public long SystemMsTime { get; set; }
         public bool IsDecrypted { get; set; }
-        public FFXIVNetworkMonitor.ConnectionType Connection { get; set; }
 
         // ignored values
         [XmlIgnore]
@@ -76,7 +75,7 @@ namespace Daigassou
     public class NetworkClass
     {
         public event EventHandler<PlayEvent> Play;
-        private void MessageReceived(long epoch, byte[] message, int set, FFXIVNetworkMonitor.ConnectionType connectionType)
+        private void MessageReceived(string connection, long epoch, byte[] message)
         {
             var res = Parse(message);
 
@@ -116,7 +115,7 @@ namespace Daigassou
         }
         internal class ParseResult
         {
-            public FFXIVMessageHeader header;
+            public Server_MessageHeader header;
             public byte[] data;
         }
         internal class TimedNote
@@ -130,7 +129,7 @@ namespace Daigassou
         }
 
         private DateTime lastSentTime;
-        private void MessageSent(long epoch, byte[] message, int set, FFXIVNetworkMonitor.ConnectionType connectionType)
+        private void MessageSent(string connection, long epoch, byte[] message)
         {
             try
             {
@@ -162,7 +161,7 @@ namespace Daigassou
         private static ParseResult Parse(byte[] data)
         {
             GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
-            FFXIVMessageHeader head = (FFXIVMessageHeader)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(FFXIVMessageHeader));
+            Server_MessageHeader head = (Server_MessageHeader)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(Server_MessageHeader));
             handle.Free();
 
             ParseResult result = new ParseResult();
