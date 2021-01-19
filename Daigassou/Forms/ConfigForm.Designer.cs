@@ -302,9 +302,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(63, 62);
             this.panel4.TabIndex = 54;
-            this.panel4.Click += new System.EventHandler(this.panel4_Click);
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            this.panel4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseClick);
             // 
             // panel3
             // 

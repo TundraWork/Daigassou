@@ -26,7 +26,6 @@ namespace Daigassou
             kc = _kc;
             hkm = _hkm;
             InitValue();
-            tabControl1.TabPages.Remove(tbLyric);
         }
 
         private void InitValue()
@@ -156,12 +155,6 @@ namespace Daigassou
         private void panel4_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private void panel4_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (!tabControl1.TabPages.Contains(tbLyric)&&e.Button==MouseButtons.Middle)
-                tabControl1.TabPages.Add(tbLyric);
         }
 
         private void cbPcap_CheckedChanged(object sender, EventArgs e)
