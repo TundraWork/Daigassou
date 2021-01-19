@@ -39,5 +39,10 @@ namespace Daigassou.Forms
             System.Threading.Timer timer1 = new System.Threading.Timer((TimerCallback)(x => this.kc.BackgroundKeyPress(Keys.Space)), new object(), 100, 0);
             System.Threading.Timer timer2 = new System.Threading.Timer((TimerCallback)(x => this.kc.BackgroundKeyRelease(Keys.Space)), new object(), 200, 0);
         }
+
+        private void PidSelect_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

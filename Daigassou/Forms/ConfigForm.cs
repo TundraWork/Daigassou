@@ -105,13 +105,7 @@ namespace Daigassou
 
         private void Panel2_Click(object sender, EventArgs e)
         {
-            PidSelect pidSelect = new PidSelect();
-            pidSelect.GetPid += (PidSelect.PidSelector)(x =>
-            {
-                this.kc.isBackGroundKey = true;
-                this.kc.InitBackGroundKey(Process.GetProcessById(x).MainWindowHandle);
-            });
-            pidSelect.ShowDialog();
+
         }
 
         private void HotKeyControl1_HotKeyIsReset(object sender, EventArgs e)
@@ -186,6 +180,22 @@ namespace Daigassou
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PidSelect pidSelect = new PidSelect();
+            pidSelect.GetPid += (PidSelect.PidSelector)(x =>
+            {
+                this.kc.isBackGroundKey = true;
+                this.kc.InitBackGroundKey(Process.GetProcessById(x).MainWindowHandle);
+            });
+            pidSelect.ShowDialog();
+        }
+
+        private void tbLyric_Click(object sender, EventArgs e)
         {
 
         }
